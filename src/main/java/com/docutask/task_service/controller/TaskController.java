@@ -8,7 +8,7 @@ import java.util.List;
 
 @RestController
 @RequestMapping("/api/v1/tasks")
-@CrossOrigin
+@CrossOrigin(origins = "http://localhost:5173")
 public class TaskController {
 
     private final TaskService taskService;
@@ -40,5 +40,15 @@ public class TaskController {
     @GetMapping("/user/{userId}")
     public List<Task> getTasksByAssignedUserId(@PathVariable Long userId) {
         return taskService.getTasksByAssignedUserId(userId);
+    }
+
+    @PutMapping("/{id}")
+    public Task updateTask(@PathVariable Long id, @RequestBody Task task) {
+        return taskService.updateTask(id, task);
+    }
+
+    @DeleteMapping("/{id}")
+    public void deleteTask(@PathVariable Long id) {
+        taskService.deleteTask(id);
     }
 }
