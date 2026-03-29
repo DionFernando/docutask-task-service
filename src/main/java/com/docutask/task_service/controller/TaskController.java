@@ -47,7 +47,7 @@ public class TaskController {
     }
 
     @DeleteMapping("/{id}")
-    public void deleteTask(@PathVariable Long id) { 
+    public void deleteTask(@PathVariable Long id) {
         taskService.deleteTask(id);
     }
 }
