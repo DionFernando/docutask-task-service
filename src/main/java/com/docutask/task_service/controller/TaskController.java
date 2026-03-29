@@ -40,4 +40,14 @@ public class TaskController {
     public List<Task> getTasksByAssignedUserId(@PathVariable Long userId) {
         return taskService.getTasksByAssignedUserId(userId);
     }
+
+    @PutMapping("/{id}")
+    public Task updateTask(@PathVariable Long id, @RequestBody Task task) {
+        return taskService.updateTask(id, task);
+    }
+
+    @DeleteMapping("/{id}")
+    public void deleteTask(@PathVariable Long id) { 
+        taskService.deleteTask(id);
+    }
 }
